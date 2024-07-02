@@ -17,6 +17,8 @@ using SemanticKernelSamples.Logging;
 
 using Xunit.Abstractions;
 
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
 namespace SemanticKernelSamples;
 
 public class LoggingTests : BaseTest
@@ -44,6 +46,22 @@ public class LoggingTests : BaseTest
         _logger = _kernel.Services.GetRequiredService<ILogger<LoggingTests>>();
     }
 
+    /// <summary>
+    /// Output:
+    /// Information: Starting logging tests...
+    /// Trace: Extracting blocks from template: What color is the sky?
+    /// Information: Function InvokePromptAsync_27be001d322c43dfb00fd38a6bd0ea0a invoking.
+    /// Trace: Function arguments: {}
+    /// Trace: Rendered prompt: What color is the sky?
+    /// Trace: ChatHistory: [{"Role":{"Label":"user"},"Items":[{"$type":"TextContent","Text":"What color is the sky?"}]}], Settings: { "temperature":1,"top_p":1,"presence_penalty":0,"frequency_penalty":0,"max_tokens":null,"stop_sequences":null,"results_per_prompt":1,"seed":null,"response_format":null,"chat_system_prompt":null,"token_selection_biases":null,"ToolCallBehavior":null,"User":null,"logprobs":null,"top_logprobs":null,"service_id":null,"model_id":null}
+    /// Information: Prompt tokens: 13.Completion tokens: 47.Total tokens: 60.
+    /// Information: Prompt tokens: 13.Completion tokens: 47.
+    /// Information: Function InvokePromptAsync_27be001d322c43dfb00fd38a6bd0ea0a succeeded.
+    /// Trace: Function result: During a clear day, the sky is blue. However, it can change to various colors such as grey during cloudy conditions, or red, pink, orange, and purple during sunrise or sunset. At night, the sky is black.
+    /// Information: Function completed. Duration: 2.5831082s
+    /// Information: result: During a clear day, the sky is blue. However, it can change to various colors such as grey during cloudy conditions, or red, pink, orange, and purple during sunrise or sunset. At night, the sky is black.
+    /// Information: Logging tests complete.
+    /// </summary>
     [Fact]
     public async Task RunAsync()
     {
