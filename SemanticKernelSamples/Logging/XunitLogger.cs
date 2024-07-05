@@ -28,7 +28,7 @@ namespace SemanticKernelSamples.Logging
             var message = formatter(state, exception);
             if (string.IsNullOrEmpty(message) && exception == null) return;
 
-            var logEntry = $"{logLevel}: {message}";
+            var logEntry = $"[{logLevel} - {_categoryName}]: {message}";
             if (exception != null)
             {
                 logEntry = $"{logEntry}{Environment.NewLine}{exception}";
