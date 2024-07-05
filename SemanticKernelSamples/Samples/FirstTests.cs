@@ -2,7 +2,7 @@ using Microsoft.SemanticKernel;
 
 using Xunit.Abstractions;
 
-namespace SemanticKernelSamples;
+namespace SemanticKernelSamples.Samples;
 
 public class FirstTests : BaseTest
 {
@@ -10,7 +10,7 @@ public class FirstTests : BaseTest
 
     public FirstTests(ITestOutputHelper output) : base(output)
     {
-        this._kernel = Kernel.CreateBuilder()
+        _kernel = Kernel.CreateBuilder()
             .AddAzureOpenAIChatCompletion(
                 deploymentName: TestConfiguration.AzureOpenAI.DeploymentName,
                 endpoint: TestConfiguration.AzureOpenAI.Endpoint,
