@@ -9,7 +9,6 @@ namespace SemanticKernelSamples;
 
 public class BaseTest
 {
-    private readonly ServiceProvider _serviceProvider;
     protected IXunitOutput Output { get; }
 
     protected BaseTest(ITestOutputHelper output)
